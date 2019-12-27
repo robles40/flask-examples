@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1 class="title">Welcome to Flask!</h1>
+<ul class="links">
+	<li><a href="/notfound">Not found</a></li>
+	<li><a href="{{ url_for('server_error') }}">Server Error</a></li>
+</ul>
+{% endblock %}

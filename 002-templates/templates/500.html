@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Server Error{% endblock %}
+{% block content %}
+<h1 class="error">Internal Server Error!</h1>
+<a href="{{ url_for('home') }}">Go to home</a>
+{% endblock %}
