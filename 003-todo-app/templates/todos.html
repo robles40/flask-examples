@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h1 class="title">Todo App</h1>
+<form method="post">
+	{{ form.hidden_tag() }}
+	{{ form.title.label }}{{ form.title(placeholder='Enter a new item.') }}
+	<input type="submit" value="Add"/>
+</form>
+
+{% if todos %}
+<ul>
+	{% for item in todos %}
+	<li>
+		{{ item  }}
+		<form action="{{ url_for('delete_todo') }}" method="post">
+			<input type="hidden" value="{{ loop.index0 }}" name="todo_index"/>
+			<button class="delete" type="submit">X</button>
+		</form>
+	</li>
+	{% endfor %}
+</ul>
+{% else %}
+<p>Nothing to do.</p>
+{% endif %}
+{% endblock %}
